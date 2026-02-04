@@ -22,3 +22,6 @@ validate $? "Nginx Installation"
 
 dnf install mysql -y
 validate $? "Mysql Installation"
+
+dnf install mongo -y
+validate $? "Mongo Installation"

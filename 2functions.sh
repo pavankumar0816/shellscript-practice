@@ -5,7 +5,7 @@ LOGS_FOLDER="/var/log/shellscript"
 LOGS_FILE="$LOGS_FOLDER/$0.log"
 
 if [ $userid -ne 0 ]; then
-    echo "Run with sudo access"
+    echo "Run with sudo access" | tee -a $LOGS_FILE
     exit 1
 fi
 
