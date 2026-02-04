@@ -12,7 +12,7 @@ if [ $userid -ne 0 ]; then
 fi
 
 echo "Installing Nginx web server..."
-dnf install ngivnx -y
+dnf install nginx -y
 
 if [ $? -ne 0 ]; then
     echo -e "$R Failed $N"
