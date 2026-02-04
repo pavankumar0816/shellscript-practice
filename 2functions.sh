@@ -23,5 +23,5 @@ validate(){
 dnf install nginx -y &>> $LOGS_FILE
 validate $? "Nginx Installation"
 
-dnf install mongodb-org -y 2>&1 | tee -a $LOGS_FILE
-validate $? "Mongo Installation"
+dnf install mysql -y &>> $LOGS_FILE
+validate $? "Mysql Installation"
