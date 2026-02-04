@@ -22,3 +22,6 @@ validate(){
 
 dnf install nginx -y &>> $LOGS_FILE
 validate $? "Nginx Installation"
+
+dnf install mongo -y 2>&1 | tee -a $LOGS_FILE
+validate $? "Mongo Installation"
