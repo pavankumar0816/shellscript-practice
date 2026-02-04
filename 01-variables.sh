@@ -1,9 +1,11 @@
 #!/bin/bash
+username=$1
+password=$2
 
 echo "Enter ur name:"
-read $1
+read $username
 
-echo "Your name is $1"
+echo "Your name is $username"
 echo "Enter ur password:"
-read -s $2
-echo "Your password is $2"
+read -s $password
+echo "Your password is $password"
