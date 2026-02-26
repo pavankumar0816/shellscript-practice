@@ -1,9 +1,19 @@
 #!/bin/bash
 
 userid=$(id -u)
-echo "userid: $userid"
+
 
 if [ $userid -ne 0 ]; then
-echo "Run with root user access"
-exit 1
+    echo "Run with root user access"
+    exit 1
+fi
+
+echo "Installing nginx"
+dnf install nginx -y
+
+if[ $? -ne 0 ]; then
+    echo "Installing nginx is failure";
+    exit 1
+else
+    echo "Installed"
 fi
