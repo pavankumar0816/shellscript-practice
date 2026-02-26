@@ -12,11 +12,11 @@ fi
 mkdir -p $LOGS_FOLDER
 
 validate(){
-  if [ $1 -ne 0 ]; then
-       echo $2 .. Failed | tee -a $LOGS_FILE
+    if($1 != 0); then
+       echo "$2 is Failed"  | tee -a $LOGS_FILE
        exit 1
     else
-     echo $2 ... Success | tee -a $LOGS_FILE
+       echo "$2 is Success" | tee -a $LOGS_FILE
     fi
 }
 
