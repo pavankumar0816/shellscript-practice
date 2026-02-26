@@ -5,3 +5,4 @@ var2=$2
 
 sum=$(($var1 + $var2))
 echo "Sum = $sum"
+echo "Number of args passed to script: $#"
