@@ -21,10 +21,10 @@ fi
 for packages in $@
 do
   dnf list installed $packages &>> $LOGS_FILES
-  if[ $? -ne 0 ]; then
+  if [ $? -ne 0 ]; then
     echo "$packages is not installed, Installing now..."
     dnf install $packages -y &>> $LOGS_FILE
-    validate $? "$packages Installation is"
+    
   else
     echo "$packages is already installed"
   fi
