@@ -7,6 +7,7 @@ echo "$Timestamp"
 
 echo "Script executed at $timestamp"
 starttime=$(date +%s)
+echo "Start Time: $starttime"
 sleep 5
 endtime=$(date +%s)
 echo "Script Ended at $endtime"
