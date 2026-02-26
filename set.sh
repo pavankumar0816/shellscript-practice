@@ -24,14 +24,44 @@ validate(){
     fi 
 }
 
-for package in $@ # sudo sh 14-loops.sh nginx mysql nodejs
+# for package in $@ # sudo sh 14-loops.sh nginx mysql nodejs
+# do
+#     dnf list installed $package &>>$LOGS_FILE
+#     if [ $? -ne 0 ]; then
+#         echo "$package is not installed, Installing now" 
+#         dnf install $package -y &>>$LOGS_FILE
+#         #validate $? "$package installation"
+#     else
+#         echo "$package is already installed, Skipping installation"
+#     fi
+# done
+
+
+
+for package in $@
 do
-    dnf list installed $package &>>$LOGS_FILE
-    if [ $? -ne 0 ]; then
-        echo "$package is not installed, Installing now" 
+   if ! dnf list installed $package &>>$LOGS_FILE ; then
+        echo "$package is not installed, Installing now..."
         dnf install $package -y &>>$LOGS_FILE
-        #validate $? "$package installation"
     else
-        echo "$package is already installed, Skipping installation"
+        echo "$package is already installed"
+   fi
+done
+
+
+# another model without using validate function
+for package in "$@"
+do
+    if dnf list installed "$package" &>>"$LOGS_FILE"; then
+        echo "$package already installed" | tee -a "$LOGS_FILE"
+    else
+        echo "$package not installed, installing..." | tee -a "$LOGS_FILE"
+
+        if dnf install "$package" -y &>>"$LOGS_FILE"; then
+            echo "$package installation SUCCESS" | tee -a "$LOGS_FILE"
+        else
+            echo "$package installation FAILED" | tee -a "$LOGS_FILE"
+            exit 1
+        fi
     fi
 done
