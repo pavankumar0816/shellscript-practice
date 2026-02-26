@@ -17,3 +17,12 @@ if[ $? -ne 0 ]; then
 else
     echo "Installed"
 fi
+
+dnf install mysql -y
+
+if[ $? -ne 0 ]; then
+    echo "Installing mysql is failure";
+    exit 1
+else
+    echo "Installed"
+fi
