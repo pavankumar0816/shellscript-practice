@@ -2,7 +2,8 @@
 
 timestamp=$(date "+%y-%m-%d %H:%M:%S")
 Timestamp=$(date)
-echo "$Timestamp
+
+echo "$Timestamp"
 
 echo "Script executed at $timestamp"
 starttime=$(date +%s)
