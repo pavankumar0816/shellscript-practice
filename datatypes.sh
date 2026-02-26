@@ -16,3 +16,9 @@ do
    ((count++))
 done
 
+a=1
+b=2
+c="pavan"
+
+sum=$(($a + $b + $c))
+echo "Sum: $sum"
