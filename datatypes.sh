@@ -1,5 +1,12 @@
 #!/bin/bash
 
+a=1
+b=2
+c="pavan"
+
+sum=$(($a + $b + $c))
+echo "Sum: $sum"
+
 items=("PC" "Mobile" "Tablet" "Desktop")
 echo "Items: ${items[@]}"
 
@@ -16,9 +23,3 @@ do
    ((count++))
 done
 
-a=1
-b=2
-c="pavan"
-
-sum=$(($a + $b + $c))
-echo "Sum: $sum"
