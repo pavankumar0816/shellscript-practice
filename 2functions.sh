@@ -25,3 +25,4 @@ validate $? "Nginx Installation"
 
 dnf install mysql -y &>> $LOGS_FILE
 validate $? "Mysql Installation"
+
