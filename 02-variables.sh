@@ -1,7 +1,7 @@
 #!/bin/bash
 
 timestamp=$(date "+%y-%m-%d %H:%M:%S")
-timestamp = $(date)
+timestamp=$(date)
 
 echo "Script executed at $timestamp"
 starttime=$(date +%s)
