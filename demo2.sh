@@ -1,10 +1,5 @@
 #!/bin/bash
 
-echo "Please enter ur name:"
-read name
+TIMESTAMP=$(date)
+echo "$TIMESTAMP"
 
-echo "Hello $name"
-
-echo "Please enter ur password"
-read -s password
-echo "your password: $password"
