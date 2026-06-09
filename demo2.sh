@@ -3,10 +3,10 @@
 TIMESTAMP=$(date)
 echo "$TIMESTAMP"
 
-start=$(date +%S)
+start=$(date +%H:%M)
 echo "Script executed at: $start"
 sleep 5
-end=$(date +%S)
+end=$(date +%H:%M)
 echo "Script ended at: $end"
 
 duration=$(($end - $start))
