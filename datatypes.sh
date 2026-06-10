@@ -15,9 +15,9 @@ echo "Items: ${items[@]}"
 # echo "$i ${items[$i]}"
 # done
 
-for i in "${!items[@]}"
+for i in "${items[@]}"
 do 
-echo "$i : ${items[$i]}"
+echo "$i "
 done
 
 
