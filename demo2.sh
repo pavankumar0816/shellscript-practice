@@ -7,30 +7,35 @@ if [ $userid -ne 0 ]; then
    exit 1 
 fi
 
-echo "Installing nginx"
-dnf install nginx -y
-
-if [ $? -ne 0 ]; then
-   echo "Failed to install Nginx"
-   exit 1
-else 
-    echo "Installed nginx successfully"
-fi
-
-dnf install mysql -y
-
-if [ $? -ne 0 ]; then
-    echo "Failed to install MySQL"
-    exit 1
-    else
-         echo "Installed"
-fi
-
-dnf install nodejs -y
-if [ $? -ne 0 ]; then
-   echo "Failed to install"
-   exit 1
+remove()
+{
+   if [ $1 -ne 0]; then
+       echo "$2 is not available to remove"
    else
-      echo "Installed"
-fi
+        echo "$2 is removed Successfully"
+   fi
+}
 
+dnf remove nginx -y
+remove $? "Nginx"
+
+dnf remove mysql -y
+remove $? "Mysql"
+
+dnf remove mysqlll -y
+remove $? "Mysqlll"
+
+validate(){
+   if [ $1 -ne 0]; then 
+      echo "$2 is Failed ...."
+      exit 1
+   else
+       echo $2 is success .....
+   fi
+}
+
+dnf install  nginx -y
+validate $? "Nginx Installation"
+
+dnf install mysqll -y
+validate $? "Mysql installation"

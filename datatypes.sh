@@ -17,11 +17,8 @@ echo "Items: ${items[@]}"
 
 for i in "${items[@]}"
 do 
-echo "$i "
+echo "$i"
 done
-
-
-
 
 echo "Second Way"
 count=0
