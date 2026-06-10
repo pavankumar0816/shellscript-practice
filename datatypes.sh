@@ -15,6 +15,11 @@ do
 echo "$i ${items[$i]}"
 done
 
+for i in "${items[@]}"
+do 
+echo "$i : ${items[$i]}"
+done
+
 echo "Second Way"
 count=0
 for i in "${items[@]}"
