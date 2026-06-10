@@ -11,6 +11,7 @@ remove()
 {
    if [ $1 -ne 0]; then
        echo "$2 is not available to remove"
+       exit 1
    else
         echo "$2 is removed Successfully"
    fi
