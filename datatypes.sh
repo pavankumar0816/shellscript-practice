@@ -17,7 +17,7 @@ done
 
 for i in "${items[@]}"
 do 
-echo "$i : ${items[$i]}"
+echo "$i : ${items[$@]}"
 done
 
 echo "Second Way"
