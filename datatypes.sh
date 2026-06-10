@@ -10,15 +10,18 @@ echo "Sum: $sum"
 items=("PC" "Mobile" "Tablet" "Desktop")
 echo "Items: ${items[@]}"
 
-for i in "${!items[@]}" #! means:Give me the INDEXES, not the values
-do 
-echo "$i ${items[$i]}"
-done
+# for i in "${!items[@]}" #! means:Give me the INDEXES, not the values
+# do 
+# echo "$i ${items[$i]}"
+# done
 
 for i in "${items[@]}"
 do 
-echo "$i : ${items[$@]}"
+echo "$i : ${items[$i]}"
 done
+
+
+
 
 echo "Second Way"
 count=0
