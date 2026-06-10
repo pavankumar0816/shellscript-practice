@@ -8,7 +8,7 @@ if [ $userid -ne 0 ]; then
 fi
 
 echo "Installing nginx"
-dnf install ngiinx -y
+dnf install nginx -y
 
 if [ $? -ne 0 ]; then
    echo "Failed to install Nginx"
@@ -24,5 +24,13 @@ if [ $? -ne 0 ]; then
     exit 1
     else
          echo "Installed"
+fi
+
+dnf install nodejs -y
+if [ $? -ne 0 ]; then
+   echo "Failed to install"
+   exit 1
+   else
+      echo "Installed"
 fi
 
