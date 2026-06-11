@@ -6,18 +6,17 @@ logs_file="$logs_folder/$0.log"
 
 mkdir -p $logs_folder
 
-
-
 if [ $userid -ne 0 ]; then
-   echo "Please run as root user"
+   echo "Please run as root user" | tee -a $logs_file
+   exit 1
 fi
 
 validate () {
     if [ $1 -ne 0 ]; then
-        echo "$2 is failed"
+        echo "$2 is failed" | tee -a $logs_file
         exit 1
     else
-        echo "$2 is Success"
+        echo "$2 is Success" | tee -a $logs_file
     fi  
 }
 
