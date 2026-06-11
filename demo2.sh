@@ -41,7 +41,7 @@ validate $? "GIT Installation"
 remove(){
    for package in "$@"
    do
-     if rpm -q $package > output.txt 2>&1; then
+     if rpm -q $package &>>output.txt; then
          dnf remove $package -y
          echo "$package is removed successfully"
       else
