@@ -1,7 +1,7 @@
 #!/bin/bash
 
 userid=$(id -u)
-log_folder="/var/log/shellscript"
+log_folder="/var/log/shell-script"
 log_file="$log_folder/$0.log"
 
 mkdir -p $log_folder
