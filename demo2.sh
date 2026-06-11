@@ -34,5 +34,6 @@ remove(){
    fi
 }
 remove nginx
+remove mysql
 
 
