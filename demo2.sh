@@ -19,8 +19,8 @@ validate(){
 dnf install  nginx -y
 validate $? "Nginx Installation"
 
-dnf install git -y
-validate $? "GIT Installation"
+dnf install redis -y
+validate $? "Redis Installation"
 
 # dnf install mysqll -y
 # validate $? "Mysql installation"
@@ -50,7 +50,7 @@ remove(){
 
    done
 }
-remove nginx mysql git
+remove nginx mysql redis
 
 
 
