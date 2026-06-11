@@ -31,7 +31,7 @@ validate(){
       echo "$2 is Failed ...."
       exit 1
    else
-       echo $2 is success .....
+       echo $2 is Success ...
    fi
 }
 
