@@ -25,15 +25,14 @@ validate $? "Nginx Installation"
 
 remove(){
    
-   if rpm -q $1 >/dev/null 2>&1; then
-       dnf remove $1 -y
-       echo "$1 is removed Successfully"
+   if rpm -q $@ >/dev/null 2>&1; then
+       dnf remove $@ -y
+       echo "$@ is removed Successfully"
    else
-       echo "$1 is not installed to remove"
+       echo "$@ is not installed to remove"
        exit 1
    fi
 }
-remove nginx
-remove mysql
+remove nginx mysql
 
 
