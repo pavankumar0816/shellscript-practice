@@ -21,7 +21,7 @@ validate() {
 }
 
 
-for packages in $@
+for package in $@
 do
     dnf install $package -y &>>$log_file
     validate $? "$package installation"
