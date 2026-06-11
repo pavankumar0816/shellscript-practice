@@ -36,5 +36,9 @@ validate(){
 }
 
 
+
 dnf install mysqll -y
 validate $? "Mysql installation"
+
+dnf install  nginx -y
+validate $? "Nginx Installation"
