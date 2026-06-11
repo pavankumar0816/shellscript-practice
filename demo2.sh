@@ -27,14 +27,13 @@ fi
 # remove $? "Mysqlll"
 
 validate(){
-   if [ $1 -ne 0]; then 
+   if [ $1 -ne 0 ]; then 
       echo "$2 is Failed ...."
       exit 1
    else
-       echo $2 is Success ...
+       echo "$2 is Success ..."
    fi
 }
-
 
 
 dnf install mysqll -y
