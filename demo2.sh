@@ -19,20 +19,40 @@ validate(){
 dnf install  nginx -y
 validate $? "Nginx Installation"
 
+dnf install git -y
+validate $? "GIT Installation"
+
 # dnf install mysqll -y
 # validate $? "Mysql installation"
 
 
-remove(){
+# remove(){
    
-   if rpm -q $@ >/dev/null 2>&1; then
-       dnf remove $@ -y
-       echo "$@ is removed Successfully"
-   else
-       echo "$@ is not installed to remove"
-       exit 1
-   fi
+#    if rpm -q $1 >/dev/null 2>&1; then
+#        dnf remove $1 -y
+#        echo "$1 is removed Successfully"
+#    else
+#        echo "$1 is not installed to remove"
+#        exit 1
+#    fi
+# }
+# remove nginx
+
+remove(){
+   for package in "$@"
+   do
+     if rpm -q $package > output.txt 2>&1; then
+         dnf remove $package -y
+         echo "$package is removed successfully"
+      else
+         echo "$package is not installed"
+      fi
+
+   done
 }
-remove nginx mysql
+remove nginx mysql git
+
+
+
 
 
