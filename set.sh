@@ -9,7 +9,7 @@ LOGS_FOLDER="/var/log/shell-script"
 LOGS_FILE="/var/log/shell-script/$0.log"
 
 if [ $userid -ne 0 ]; then
-   echo "Run this script with root user access" | tee -a $LOGS_FILE
+   echo "Please Run this script with root user access" | tee -a $LOGS_FILE
    exit 1
 fi
 
