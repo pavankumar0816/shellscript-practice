@@ -2,7 +2,7 @@
 
 set -e #This will be checking the error in each command and if any command fails it will exit the script
 
-#!/bin/bash
+
 
 userid=$(id -u)
 LOGS_FOLDER="/var/log/shell-script"
