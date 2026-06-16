@@ -8,8 +8,8 @@ Y="\e[33m"
 N="\e[0m"
 SCRIPT_DIR=$PWD
 MONGODB_HOST=mongodb.pmpkdev.online
+
 userid=$(id -u)
-SCRIPT_DIR=$PWD
 
 if [ $userid -ne 0 ]; then
    echo -e "$R Please run this script as a root user $N" | tee -a $log_file
@@ -30,13 +30,13 @@ validate(){
 if command -v node &>/dev/null && node -v | grep -q "^v20"; then
     echo "NodeJs 20 is already Installed, ... $Y Skipping $N" | tee -a $log_file
 else
-    dnf module disable nodejs -y
+    dnf module disable nodejs -y &>> $LOGS_FILE
     validate $? "Disabling Nodejs default version"
 
-    dnf module enable nodejs:20 -y
+    dnf module enable nodejs:20 -y &>> $LOGS_FILE
     validate $? "Enabling Nodejs version 20"
 
-    dnf install nodejs -y
+    dnf install nodejs -y &>> $LOGS_FILE
     validate $? "Installing Nodejs"
 fi
 
