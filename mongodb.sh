@@ -7,6 +7,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+mkdir -p $logs_folder
+
 userid=$(id -u)
 
 
@@ -15,7 +17,6 @@ if [ $userid -ne 0 ]; then
     exit 1
 fi
 
-mkdir -p $logs_folder
 
 validate() {
    if [ $1 -ne 0 ]; then
