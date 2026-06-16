@@ -8,14 +8,14 @@ Y="\e[33m"
 N="\e[0m"
 SCRIPT_DIR=$PWD
 
-mkdir -p $logs_folder
-
 userid=$(id -u)
 
 if [ $userid -ne 0 ]; then
   echo -e "$R Please run this script with sudo access $N" | tee -a $log_file
   exit 1
 fi
+
+mkdir -p $logs_folder
 
 validate(){
     if [ $1 -ne 0 ]; then
