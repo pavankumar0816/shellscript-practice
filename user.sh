@@ -27,7 +27,7 @@ validate(){
 }
 
 if command -v node &>/dev/null && node -v | grep -q "^v20"; then
-    echo "NodeJs 20 is already Installed, ... $Y Skipping $N" | tee -a $log_file
+    echo -e "NodeJs 20 is already Installed, ... $Y Skipping $N" | tee -a $log_file
 else
     dnf module disable nodejs -y &>>$log_file
     validate $? "Disabling Nodejs default version"
@@ -47,7 +47,7 @@ else
     echo -e "Roboshop User already created, ... $Y Skipping now .. $N" | tee -a $log_file
 fi
 
-mkdir /app 
+mkdir -p /app 
 validate $? "Creating App Directory"
 
 curl -L -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip &>>$log_file
