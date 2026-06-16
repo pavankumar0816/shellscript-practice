@@ -7,7 +7,6 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 SCRIPT_DIR=$PWD
-MONGODB_HOST=mongodb.pmpkdev.online
 
 userid=$(id -u)
 
@@ -30,13 +29,13 @@ validate(){
 if command -v node &>/dev/null && node -v | grep -q "^v20"; then
     echo "NodeJs 20 is already Installed, ... $Y Skipping $N" | tee -a $log_file
 else
-    dnf module disable nodejs -y &>> $LOGS_FILE
+    dnf module disable nodejs -y &>>$log_file
     validate $? "Disabling Nodejs default version"
 
-    dnf module enable nodejs:20 -y &>> $LOGS_FILE
+    dnf module enable nodejs:20 -y &>>$log_file
     validate $? "Enabling Nodejs version 20"
 
-    dnf install nodejs -y &>> $LOGS_FILE
+    dnf install nodejs -y &>>$log_file
     validate $? "Installing Nodejs"
 fi
 
