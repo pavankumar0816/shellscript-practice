@@ -7,7 +7,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 SCRIPT_DIR=$PWD
-
+MONGODB_HOST=mongodb.pmpkdev.online
 userid=$(id -u)
 
 if [ $userid -ne 0 ]; then
