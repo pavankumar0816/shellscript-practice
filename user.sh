@@ -56,6 +56,9 @@ validate $? "Downloading user app content"
 cd /app
 validate $? "Moving to App Directory"
 
+rm -rf /app/*
+validate $? "Removing "
+
 unzip /tmp/user.zip &>>$log_file
 validate $? "Extracting App Content"
 
