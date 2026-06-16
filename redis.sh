@@ -25,8 +25,8 @@ validate(){
     fi
 }
 
-if command -v redis &>/dev/null && redis-server -v | grep -q "v=7"; then
-    echo -e "Redis is already installed, $Y Skipping $N" | tee -a $log_file
+if command -v redis-server &>/dev/null && redis-server -v | grep -q "v=7"; then
+    echo -e "Already Installed ... $Y Skipping $N" | tee -a $log_file
 else
     dnf module disable redis -y &>>$log_file
     validate $? "Disabling redis default version"
