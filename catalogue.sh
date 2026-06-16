@@ -84,10 +84,10 @@ INDEX=$(mongosh --host $MONGODB_HOST --quiet --eval 'db.getMongo().getDBNames().
 
 if [ $INDEX -le 0 ]; then
     mongosh --host $MONGODB_HOST </app/db/master-data.js
-    VALIDATE $? "Loading Products"
+    validate $? "Loading Products"
 else
     echo -e "Products are already loaded ... $Y Skipping $N"  
 fi
 
 systemctl restart catalogue
-VALIDATE $? "Restarting catalogue service"
+validate $? "Restarting catalogue service"
