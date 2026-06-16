@@ -65,7 +65,7 @@ npm install &>>$log_file
 validate $? "Installing Nodejs Dependencies"
 
 cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/catalogue.service &>>$log_file
-validate $? "Creating systemctl service file" 
+validate $? "Creating Catalogue service file" 
 
 systemctl daemon-reload
 validate $? "Reloaded"
