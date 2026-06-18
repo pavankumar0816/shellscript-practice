@@ -38,7 +38,7 @@ else
     echo -e "Roboshop user already exists, ... $Y SKipping ... $N" | tee -a $log_file
 fi
 
-mkdir /app 
+mkdir -p /app 
 validate $? "Creating App Directory"
 
 curl -L -o /tmp/shipping.zip https://roboshop-artifacts.s3.amazonaws.com/shipping-v3.zip &>>$log_file
@@ -67,3 +67,22 @@ validate $? "Reloaded"
 systemctl enable shipping &>>$log_file
 systemctl start shipping
 validate $? "Enabled and Shipping Service"
+
+dnf install mysql -y &>>$log_file
+validate $? "Installing Mysql Client"
+
+mysql -h $MYSQL_HOST -uroot -pRoboShop@1 -e "use cities" &>>$log_file
+if [ $? -ne 0 ]; then
+    mysql -h $MYSQL_HOST -uroot -pRoboShop@1 < /app/db/schema.sql &>> $log_file
+    validate $? "Loading Shipping Schema"
+    mysql -h $MYSQL_HOST -uroot -pRoboShop@1 < /app/db/app-user.sql &>> $log_file
+    validate $? "Loading Shipping Schema and User Data"
+    mysql -h $MYSQL_HOST -uroot -pRoboShop@1 < /app/db/master-data.sql &>> $log_file
+    validate $? "Loading Shipping Master Data"
+else 
+    echo -e "Shipping Database already exists ... $Y Skipping $N"
+fi
+
+
+systemctl restart shipping
+validate $? "Restarted Shipping service"
