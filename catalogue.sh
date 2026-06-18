@@ -7,6 +7,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 SCRIPT_DIR=$PWD
+echo "Presnet Directory: $SCRIPT_DIR"
 MONGODB_HOST=mongodb.pmpkdev.online
 userid=$(id -u)
 
@@ -46,8 +47,11 @@ else
     echo -e "Roboshop user already exists, $Y Skipping... $N" | tee -a $log_file
 fi
 
+echo "Presnet Directory: $SCRIPT_DIR"
 mkdir -p /app 
 validate $? "Creating App Directory"
+
+echo "Presnet Directory: $SCRIPT_DIR"
 
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>>$log_file
 validate $? "Downloading Catalogue app content"
@@ -64,8 +68,12 @@ validate $? "Extracting App content"
 npm install &>>$log_file
 validate $? "Installing Nodejs Dependencies"
 
+echo "Presnet Directory: $SCRIPT_DIR"
+
 cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/catalogue.service &>>$log_file
 validate $? "Creating Catalogue service file" 
+
+echo "Presnet Directory: $SCRIPT_DIR"
 
 systemctl daemon-reload
 validate $? "Reloaded"
