@@ -47,17 +47,18 @@ else
     echo -e "Roboshop user already exists, $Y Skipping... $N" | tee -a $log_file
 fi
 
-echo "Presnet Directory: $SCRIPT_DIR"
 mkdir -p /app 
 validate $? "Creating App Directory"
 
-echo "Presnet Directory: $SCRIPT_DIR"
 
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>>$log_file
 validate $? "Downloading Catalogue app content"
 
 cd /app 
 validate $? "Moving to App Directory"
+
+SCRIPT_DIR1=$PWD
+echo -e "Presnet Directory:$G $SCRIPT_DIR1 $N"
 
 rm -rf /app/*
 validate $? "Removing "
@@ -68,12 +69,11 @@ validate $? "Extracting App content"
 npm install &>>$log_file
 validate $? "Installing Nodejs Dependencies"
 
-echo "Presnet Directory: $SCRIPT_DIR"
-
+echo -e "Presnet Directory:$G $SCRIPT_DIR1 $N"
 cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/catalogue.service &>>$log_file
 validate $? "Creating Catalogue service file" 
 
-echo "Presnet Directory: $SCRIPT_DIR"
+
 
 systemctl daemon-reload
 validate $? "Reloaded"
