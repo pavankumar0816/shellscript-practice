@@ -47,6 +47,8 @@ validate $? "Downloading Shipping App Content"
 cd /app
 validate $? "Moving to App Directory"
 
+rm -rf /app/*
+validate $? "Removing existing content"
 
 unzip /tmp/shipping.zip &>>$log_file
 validate $? "Extracting Shipping service content"
