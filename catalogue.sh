@@ -57,9 +57,6 @@ validate $? "Downloading Catalogue app content"
 cd /app 
 validate $? "Moving to App Directory"
 
-SCRIPT_DIR1=$PWD
-echo -e "Presnet Directory:$G $SCRIPT_DIR1 $N"
-
 rm -rf /app/*
 validate $? "Removing "
 
@@ -69,11 +66,8 @@ validate $? "Extracting App content"
 npm install &>>$log_file
 validate $? "Installing Nodejs Dependencies"
 
-echo -e "Presnet Directory:$G $SCRIPT_DIR1 $N"
 cp catalogue.service /etc/systemd/system/catalogue.service &>>$log_file
 validate $? "Creating Catalogue service file" 
-
-
 
 systemctl daemon-reload
 validate $? "Reloaded"
