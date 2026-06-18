@@ -20,7 +20,7 @@ mkdir -p $logs_folder
 
 validate(){
     if [ $1 -ne 0 ]; then
-      echo -e "$2 is $R Failed... $N" | tee -a $log_file
+       echo -e " $2  is $R Failed, Please check the log file $N $log_file" | tee -a $log_file
       exit 1
     else
         echo -e "$2 is $G Success $N" | tee -a $log_file
