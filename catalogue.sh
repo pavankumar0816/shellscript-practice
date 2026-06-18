@@ -70,7 +70,7 @@ npm install &>>$log_file
 validate $? "Installing Nodejs Dependencies"
 
 echo -e "Presnet Directory:$G $SCRIPT_DIR1 $N"
-cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/catalogue.service &>>$log_file
+cp catalogue.service /etc/systemd/system/catalogue.service &>>$log_file
 validate $? "Creating Catalogue service file" 
 
 
