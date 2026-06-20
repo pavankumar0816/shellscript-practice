@@ -1,8 +1,9 @@
 #!/bin/bash
-set
-NAME="Pavan"
 
-demo(){
-    echo "Learning Shell"
-}
-demo
+set -u
+
+NAME=$1
+Course="Shell"
+echo $NAME
+echo $course
+echo $Course
