@@ -34,4 +34,4 @@ echo  date
 echo "Day   : $1"
 echo "Month : $2"
 echo "Date  : $3"
-echo "$4"
+
