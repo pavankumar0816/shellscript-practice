@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+# set -e
 
 userid=$(id -u)
 logs_folder="/var/log/practice"
