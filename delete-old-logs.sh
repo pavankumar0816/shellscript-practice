@@ -26,4 +26,4 @@ done <<< $FILES_TO_DELETE
 
 END_TIME=$(date +%s)
 TOTAL_TIME=$(($END_TIME - $START_TIME))
-echo -e "$G Total time taken for deleting the logs:$N $Y $TOTAL_TIME $N"
+echo -e "$(date "+%Y-%m-%d %H:%M:%S") | Time take for deleting logs : $G $TOTAL_TIME seconds $N" | tee -a $LOGS_FILE
