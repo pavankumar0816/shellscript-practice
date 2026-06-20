@@ -25,13 +25,13 @@ validate(){
 for package in $@
 do
     dnf list installed $package &>>$log_file
-    if [ $? -ne 0 ]; then
+   
         echo "$package is Not installed, Installing now"
         dnf install $package -y &>>$log_file
-        validate $? "Package Installation"
-    else
-        echo "Installed" | tee -a $log_file
-    fi
+        #validate $? "Package Installation"
+    
+        #echo "Installed" | tee -a $log_file
+    
 done
 
 if rpm -q nginx &>>$log_file; then 
