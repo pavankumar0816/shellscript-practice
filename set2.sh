@@ -29,6 +29,7 @@ echo "Third Fruit: $3"
 
 # 2nd example
 set -- $(date)
+echo  date
 
 echo "Day   : $1"
 echo "Month : $2"
