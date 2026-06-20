@@ -23,3 +23,9 @@ do
         echo "Installed" | tee -a $log_file
     fi
 done
+
+if rpm -q nginx
+echo "Installed"
+else
+echo "Not installed"
+fi
