@@ -13,12 +13,22 @@ if [ $userid -ne 0 ]; then
     exit 1
 fi
 
+validate(){
+   if [ $1 -ne 0 ]; then
+        echo "$2 is failure" | tee -a $LOGS_FILE
+        exit 1
+    else
+        echo "$2 is success" | tee -a $LOGS_FILE
+    fi 
+}
+
 for package in $@
 do
     dnf list installed $package &>>$log_file
     if [ $? -ne 0 ]; then
         echo "$package is Not installed, Installing now"
         dnf install $package -y &>>$log_file
+        validate $? "Package Installation"
     else
         echo "Installed" | tee -a $log_file
     fi
