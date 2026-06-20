@@ -24,7 +24,7 @@ do
     fi
 done
 
-if rpm -q nginx; then
+if rpm -q nginx; then &>>$log_file
     echo "Installed"
 else
 echo "Not installed"
