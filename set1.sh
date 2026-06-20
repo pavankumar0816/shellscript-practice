@@ -15,6 +15,7 @@ fi
 
 for package in $@
 do
-    dnf list installed $package  
+    dnf list installed $package
+    echo "Package: $package"  
 
 done
