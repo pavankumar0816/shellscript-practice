@@ -21,7 +21,7 @@ mkdir -p "$LOGS_FOLDER"
 
 # check root access
 if [ $userid -ne 0 ]; then
-   echo -e "$R Error: Please Run this script with root access $N" | tee -a "$LOGS_FILE"
+   echo -e "$R Error: Please Run this script with root access $N"  
    exit 1
 fi
 
