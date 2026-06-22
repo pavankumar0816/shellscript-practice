@@ -42,7 +42,7 @@ validate(){
 }
 
 # Start of script execution
-echo "Script started executing at $(date)" | tee -a "$LOG_FILE"
+echo "Script started executing at $(date)" | tee -a "$LOGS_FILE"
 
 # Find files older than 14 days
 FILES_TO_DELETE=$(find "$SOURCE_DIR" -name "*.log" -mtime +14)
@@ -61,5 +61,4 @@ do
 done <<< "$FILES_TO_DELETE"
 
 
-# Completion log
-echo "Script executed successfully at $(date)" | tee -a "$LOG_FILE"
+echo "Script executed successfully at $(date)" | tee -a "$LOGS_FILE"
