@@ -8,28 +8,30 @@ N="\e[0m"
 #userid
 userid=$(id -u)
 
+# check root access
+if [ $userid -ne 0 ]; then
+   echo -e "$R Error: Please Run this script with root access $N" | tee -a "$LOGS_FILE"
+   exit 1
+fi
+
 # Log Configuration
 LOGS_FOLDER="/var/log/shellscript-logs"
-SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
+
+# Create logs folder if not exists
+mkdir -p "$LOGS_FOLDER"
+
+SCRIPT_NAME=$(basename "$0" .sh)
 LOGS_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
 # Directory to Clean
 SOURCE_DIR="/home/ec2-user/app-logs"  
 
 #checking source directory exists or not
-if [ ! -d $SOURCE_DIR ]; then
+if [ ! -d "$SOURCE_DIR" ]; then
     echo -e "Source Directory not exists, $Y Creating $N" | tee -a "$LOGS_FILE"
     mkdir -p $SOURCE_DIR
 fi
 
-# Create logs folder if not exists
-mkdir -p "$LOGS_FOLDER"
-
-# check root access
-if [ $userid -ne 0 ]; then
-   echo -e "$R Error: Please Run this script with root access $N" | tee -a "$LOGS_FILE"
-   exit 1
-fi
 
 # Function to validate command success
 validate(){
@@ -45,7 +47,7 @@ validate(){
 echo "Script started executing at $(date)" | tee -a "$LOGS_FILE"
 
 # Find files older than 14 days
-FILES_TO_DELETE=$(find "$SOURCE_DIR" -name "*.log" -mtime +14)
+FILES_TO_DELETE=$(find "$SOURCE_DIR" -type f -name "*.log" -mtime +14)
 
 if [ -z "$FILES_TO_DELETE" ]; then
     echo -e "$Y No old logs to delete $N" | tee -a "$LOGS_FILE"
@@ -56,7 +58,8 @@ fi
 while IFS= read -r filepath; 
 do
         echo "Deleting File: $filepath"
-        rm -rf "$filepath"
+        rm -f "$filepath"
+        validate $? "Deleting $filepath"
         echo "Deleted Files: $filepath" | tee -a "$LOGS_FILE"
 done <<< "$FILES_TO_DELETE"
 
