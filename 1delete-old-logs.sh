@@ -16,6 +16,12 @@ LOGS_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 # Directory to Clean
 SOURCE_DIR="/home/ec2-user/app-logs"  
 
+#checking source directory exists or not
+if [ ! -d $SOURCE_DIR ]; then
+    echo -e "Source Directory not exists, $Y Creating $N" | tee -a "$LOGS_FILE"
+    mkdir -p $SOURCE_DIR
+fi
+
 # Create logs folder if not exists
 mkdir -p "$LOGS_FOLDER"
 
@@ -24,13 +30,6 @@ if [ $userid -ne 0 ]; then
    echo -e "$R Error: Please Run this script with root access $N" | tee -a "$LOGS_FILE"
    exit 1
 fi
-
-#checking source directory exists or not
-if [ ! -d $SOURCE_DIR ]; then
-    echo -e "Source Directory not exists, $Y Creating $N" | tee -a "$LOGS_FILE"
-    mkdir -p $SOURCE_DIR
-fi
-
 
 # Function to validate command success
 validate(){
