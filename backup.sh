@@ -61,6 +61,19 @@ else
     log "Archive name: $ZIP_FILE"
     tar -zcvf "$ZIP_FILE" $FILES
 
+    if [ -f "$ZIP_FILE" ]; then
+        log "Archieval is $G Sucess..$N"
+
+        while IFS= read -r filepath; do
+        log "Deleting File: $filepath"
+        rm -f $filepath
+        log "Deleted File: $filepath"
+        done <<< $FILES
+    else
+        log "Archieval is ... $R Failure $N"
+        exit 1
+    fi
+
 fi
 
 
