@@ -62,7 +62,7 @@ else
     tar -zcvf "$ZIP_FILE" $FILES
 
     if [ -f "$ZIP_FILE" ]; then
-        log "Archieval is $G Sucess..$N"
+        log "Archieval is $G ... Success ...$N"
 
         while IFS= read -r filepath; do
         log "Deleting File: $filepath"
