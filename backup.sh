@@ -19,7 +19,7 @@ log(){
 }
 
 if [ $userid -ne 0 ]; then
-    log "$R Please run this script with root user access $N" | tee -a $LOG_FILE
+    log "$R Please run this script with root user access $N" 
     exit 1
 fi
 
