@@ -55,7 +55,7 @@ FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
 if [ -z "$FILES" ]; then
     log "No files to Archive, $Y Skipping $N" 
 else
-    log "Files found to Archive: $FILES"
+    log "Files found to Archive: $FILES" \
     TIMESTAMP=$(date +%F::%H-%M-%S)
     ZIP_FILE=$DEST_DIR/app-logs-$TIMESTAMP.tar.gz
     log "Archive name: $ZIP_FILE"
