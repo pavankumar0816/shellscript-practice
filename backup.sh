@@ -70,10 +70,7 @@ else
         log "Deleted File: $filepath"
         done <<< $FILES
     else
-        log "Archieval is ... $R Failure $N"
+        log "Archieval is  $R ... Failure ... $N"
         exit 1
     fi
-
 fi
-
-
