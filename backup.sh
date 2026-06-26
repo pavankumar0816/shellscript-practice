@@ -59,20 +59,20 @@ else
     TIMESTAMP=$(date +%F::%H-%M-%S)
     ZIP_FILE=$DEST_DIR/app-logs-"$TIMESTAMP".tar.gz
     log "Archive name: $ZIP_FILE"
-    tar -zcvf "$ZIP_FILE" $FILES
+    # tar -zcvf "$ZIP_FILE" $FILES
 
-    if [ -f "$ZIP_FILE" ]; then
-        log "Archieval is $G ... Success ...$N"
+    # if [ -f "$ZIP_FILE" ]; then
+    #     log "Archieval is $G ... Success ...$N"
 
-        while IFS= read -r filepath; do
-        log "Deleting File: $filepath"
-        rm -f $filepath
-        log "Deleted File: $filepath"
-        done <<< $FILES
-    else
-        log "Archieval is ... $R Failure $N"
-        exit 1
-    fi
+    #     while IFS= read -r filepath; do
+    #     log "Deleting File: $filepath"
+    #     rm -f $filepath
+    #     log "Deleted File: $filepath"
+    #     done <<< $FILES
+    # else
+    #     log "Archieval is ... $R Failure $N"
+    #     exit 1
+    # fi
 
 fi
 
