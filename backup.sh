@@ -57,6 +57,7 @@ if [ -z "$FILES" ]; then
 else
     log "Files found to Archive: $FILES" \
     TIMESTAMP=$(date +%F::%H-%M-%S)
+    echo $TIMESTAMP
     ZIP_FILE=$DEST_DIR/app-logs-"$TIMESTAMP".tar.gz
     log "Archive name: $ZIP_FILE"
     tar -zcvf "$ZIP_FILE" $FILES
