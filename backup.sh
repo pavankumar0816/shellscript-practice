@@ -59,7 +59,7 @@ else
     TIMESTAMP=$(date +%F::%H-%M-%S)
     ZIP_FILE=$DEST_DIR/app-logs-"$TIMESTAMP".tar.gz
     log "Archive name: $ZIP_FILE"
-    tar -zcvf $ZIP_FILE $(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS )
+    tar -zcvf "$ZIP_FILE" $FILES
 
 fi
 
