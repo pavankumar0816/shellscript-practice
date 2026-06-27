@@ -14,7 +14,7 @@ echo "$DISK_USAGE"
 while IFS= read -r line;
 do
    USAGE=$(echo $line | awk '{print $6}' | cut -d "%" -f1)
-   echo "$USAGE" 
+#    echo "$USAGE" 
    PARTITION=$(echo $line | awk '{print $7}')
 
     if [ $USAGE -gt $USAGE_THRESHOLD ]; then
