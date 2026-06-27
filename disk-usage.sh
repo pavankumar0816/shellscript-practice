@@ -27,4 +27,9 @@ do
     fi
 done <<< "$DISK_USAGE"
 
-echo -e "$MESSAGE"
+# Display the result
+if [ -z "$MESSAGE" ]; then
+    echo -e "$G All disk partitions are below ${USAGE_THRESHOLD}% usage.$N"
+else
+    echo -e "$MESSAGE"
+fi
