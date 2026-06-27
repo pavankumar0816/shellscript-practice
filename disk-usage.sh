@@ -7,7 +7,7 @@ N="\e[0m"
 
 DISK_USAGE=$(df -hT | grep -v Filesystem)
 USAGE_THRESHOLD=3
-# MESSAGE=""
+MESSAGE=""
 
 echo "$DISK_USAGE"
 
