@@ -19,8 +19,8 @@ do
     USAGE=${USAGE%\%}
 
     if [ "$USAGE" -gt "$USAGE_THRESHOLD" ]; then
-        MESSAGE+="High disk usage on "$PARTITION":"$USAGE"% \n"
+        MESSAGE+="$R High disk usage on $N" $PARTITION":"$USAGE"% \n"
     fi
 done <<< "$DISK_USAGE"
 
-echo -e "$R $MESSAGE $N"
+echo -e "$MESSAGE"
