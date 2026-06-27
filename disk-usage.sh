@@ -23,4 +23,4 @@ do
     fi
 done <<< "$DISK_USAGE"
 
-echo -e "$MESSAGE"
+echo -e "$R $MESSAGE $N"
