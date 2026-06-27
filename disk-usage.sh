@@ -19,8 +19,7 @@ do
 
     if [ $USAGE -gt $USAGE_THRESHOLD ]; then
         MESSAGE="High disk usage on $PARTITION:$USAGE% <br>"
-        echo $MESSAGE
     fi
-    
-
 done <<< $DISK_USAGE
+
+echo $MESSAGE
