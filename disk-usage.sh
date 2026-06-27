@@ -10,7 +10,7 @@ N="\e[0m"
 DISK_USAGE=$(df -hT | grep -v Filesystem)
 
 #For example i have taken 3
-USAGE_THRESHOLD=0
+USAGE_THRESHOLD=85
 
 # Loop through each disk entry 
 while IFS= read -r line;
