@@ -19,7 +19,7 @@ do
     USAGE=${USAGE%\%}
 
     if [ "$USAGE" -gt "$USAGE_THRESHOLD" ]; then
-        MESSAGE+="$R High disk usage on $N"$PARTITION":"$USAGE"% \n"
+        MESSAGE+="$R High disk usage on   $N"$PARTITION": $Y "$USAGE"% $N  \n"
     fi
 done <<< "$DISK_USAGE"
 
