@@ -18,7 +18,6 @@ SOURCE_DIR=$1
 DEST_DIR=$2
 DAYS=${3:-14} # (optional) Default days is 14 days if not provided
 
-
 # Validation function
 log(){
     echo -e "$(date "+%Y-%m-%d ::: %H:%M:%S") |  $1" | tee -a $LOG_FILE
