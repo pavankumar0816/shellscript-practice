@@ -12,7 +12,7 @@ echo "$DISK_USAGE"
 
 while IFS= read -r line;
 do
-   USAGE=$(echo $DISK_USAGE | awk '{print $6}')
+   USAGE=$(echo $line | awk '{print $6}')
    echo "$USAGE"  
 
 done <<< $DISK_USAGE
