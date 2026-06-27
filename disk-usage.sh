@@ -7,8 +7,7 @@ N="\e[0m"
 
 DISK_USAGE=$(df -hT | grep -v Filesystem)
 USAGE_THRESHOLD=3
-MESSAGE=""
-
+ 
 echo "$DISK_USAGE"
 
 while IFS= read -r line;
@@ -20,6 +19,6 @@ do
     if [ $USAGE -gt $USAGE_THRESHOLD ]; then
         MESSAGE+="High disk usage on $PARTITION:$USAGE% \n"
     fi
-done <<< $DISK_USAGE
+done <<< "$DISK_USAGE"
 
 echo $MESSAGE
