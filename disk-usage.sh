@@ -10,14 +10,18 @@ N="\e[0m"
 DISK_USAGE=$(df -hT | grep -v Filesystem)
 
 #For example i have taken 3
-USAGE_THRESHOLD=3
+USAGE_THRESHOLD=0
 
 # Loop through each disk entry 
 while IFS= read -r line;
 do
+     # Extract disk usage percentage (remove % symbol)
     USAGE=$(echo "$line" | awk '{print $6}' | cut -d "%" -f1)
+
+    # Extract mounted partition
     PARTITION=$(echo "$line" | awk '{print $7}')
 
+    # Checking if usage exceeds the threshold
     if [ "$USAGE" -gt "$USAGE_THRESHOLD" ]; then
         MESSAGE+="$R High disk usage on   $N"$PARTITION": $R "$USAGE"% $N  \n"
     fi
